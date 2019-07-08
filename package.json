@@ -1,5 +1,5 @@
 {
-  "name": "vue-loader",
+  "name": "vue-global-loader-example",
   "version": "0.1.0",
   "private": true,
   "scripts": {

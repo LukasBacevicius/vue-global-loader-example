@@ -1,4 +1,4 @@
-# vue-loader
+# vue-global-loader-example
 
 ## Project setup
 ```
