@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Button @click="testLoader">Make a request to see a loader</Button>
+    <Loader :visible="loading"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapState } from "vuex";
+import Loader from "@/components/loader";
+import httpClient from '@/utils/httpClient';
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    Loader
+  },
+  computed: {
+    ...mapState("loader", ["loading"])
+  },
+  methods: {
+    testLoader() {
+      httpClient.get('http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk');
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
